@@ -14,4 +14,8 @@ def mama(request):
 
 def sister(request):
     """Представление для страницы поздравления сестры."""
-    return render(request, 'greetings/sister.html') 
+    return render(request, 'greetings/sister.html')
+
+def test(request):
+    """Тестовое представление для проверки работоспособности сайта."""
+    return render(request, 'greetings/test.html') 
