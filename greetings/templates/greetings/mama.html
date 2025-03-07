@@ -6,12 +6,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>С 8 Марта, Мама!</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
     <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffefef 0%, #ffe5e5 100%);
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .special-title {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            font-family: 'Pacifico', cursive;
+            background: linear-gradient(45deg, #ff6b6b, #ff9e9e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .special-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+            margin: 30px auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .special-image:hover {
+            transform: scale(1.03);
+        }
+
+        .message {
+            line-height: 1.6;
+            color: #444;
+            margin: 30px 0;
+        }
+
+        .signature {
+            text-align: right;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        .gallery {
+            margin-top: 40px;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .image-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .image-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        button {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
         /* Специфичные стили для страницы мамы */
         .special-card {
             background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
@@ -139,7 +277,7 @@
             content: "❤️";
             margin-right: 10px;
         }
-        
+
         .back-link {
             display: inline-block;
             margin-top: 20px;
@@ -152,6 +290,176 @@
         .back-link:hover {
             color: #ff5252;
             text-decoration: underline;
+        }
+
+        /* Анимации */
+        .typing-effect {
+            overflow: hidden;
+            border-right: 3px solid #ff6b6b;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+            display: inline-block;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #ff6b6b }
+        }
+
+        .rotate-animation {
+            animation: rotate 1s ease-in-out;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .shake-animation {
+            animation: shake-animation 0.5s ease-in-out;
+        }
+
+        @keyframes shake-animation {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        .popup-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 107, 107, 0.9);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -60%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        /* Цветочная анимация */
+        .flowers-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .flower {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.7;
+            animation: float 15s linear infinite;
+        }
+
+        .flower-1 {
+            background-image: url('https://www.freepnglogos.com/uploads/flowers-png/flowers-png-transparent-images-download-clip-art-24.png');
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .flower-2 {
+            background-image: url('https://www.freepnglogos.com/uploads/flowers-png/flowers-png-picture-gallery-yopriceville-high-quality-24.png');
+            top: 20%;
+            right: 15%;
+            animation-delay: 5s;
+        }
+
+        .flower-3 {
+            background-image: url('https://www.freepnglogos.com/uploads/flowers-png/flowers-png-transparent-images-download-clip-art-24.png');
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-100px) rotate(180deg);
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-200px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Медиа-запросы для мобильных устройств */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .special-title {
+                font-size: 2.5rem;
+                white-space: normal;
+                text-align: center;
+                padding: 0 10px;
+            }
+            
+            .typing-effect {
+                white-space: normal;
+                border-right: none;
+                animation: none;
+            }
+            
+            .image-container {
+                grid-template-columns: 1fr;
+            }
+            
+            button {
+                width: 100%;
+                margin: 5px 0 !important;
+            }
+
+            .special-image {
+                width: 100%;
+                max-width: 100%;
+                margin: 20px auto;
+            }
+
+            .image-card img {
+                width: 100%;
+                height: auto;
+                max-width: 100%;
+                object-fit: cover;
+            }
         }
     </style>
 </head>
@@ -202,7 +510,7 @@
             </div>
             
             <div style="text-align: center; margin: 30px 0;">
-                <button id="mama-confetti-button">Нажми для сюрприза!</button>
+                <button id="mom-confetti-button">Нажми для сюрприза!</button>
                 <button id="hearts-button" style="margin-left: 10px; background-color: #ff8e8e;">Запусти сердечки!</button>
                 <button id="joke-button" style="margin-left: 10px; background-color: #ffa5a5;">Покажи шутку!</button>
                 <button id="facts-button" style="margin-left: 10px; background-color: #ffb8b8;">Факты о мамах</button>
@@ -233,20 +541,19 @@
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-    <script src="{% static 'js/script.js' %}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Анимация при загрузке страницы
             animateElements();
             
             // Обработчик для кнопки конфетти
-            const confettiButton = document.getElementById('mama-confetti-button');
+            const confettiButton = document.getElementById('mom-confetti-button');
             confettiButton.addEventListener('click', function() {
                 fireConfetti();
                 showMessage();
             });
             
-            // Обработчик для кнопки сердечек
+            // Обработчик для кнопки сердец
             const heartsButton = document.getElementById('hearts-button');
             heartsButton.addEventListener('click', function() {
                 startHeartsAnimation();
@@ -278,10 +585,10 @@
             quote.addEventListener('click', function() {
                 const quotes = [
                     "Мама — это ангел, который всегда рядом, даже когда его крылья невидимы.",
-                    "Мама — это первый учитель и лучший друг на всю жизнь.",
-                    "Мамина любовь — самая бескорыстная и чистая любовь в мире.",
-                    "Мама — это тот человек, который может заменить всех, но её не заменит никто.",
-                    "Мама — это единственный человек, который любит тебя просто за то, что ты есть."
+                    "Мама — это первое слово, первая улыбка и первая любовь.",
+                    "Мамина любовь — самое чистое и бескорыстное чувство в мире.",
+                    "Мама — это тот человек, который может заменить всех, но её никто заменить не может.",
+                    "В мире нет ничего сильнее материнской любви и нежнее материнского сердца."
                 ];
                 
                 let currentQuote = this.textContent;
@@ -312,16 +619,52 @@
             // Инициализация анимации цветов
             initFlowersAnimation();
             
-            // Запускаем анимацию сердечек при загрузке
+            // Запускаем анимацию сердец при загрузке
             startHeartsAnimation();
         });
         
-        // Функция для запуска анимации сердечек
+        function fireConfetti() {
+            const count = 200;
+            const defaults = {
+                origin: { y: 0.7 }
+            };
+
+            function fire(particleRatio, opts) {
+                confetti(Object.assign({}, defaults, opts, {
+                    particleCount: Math.floor(count * particleRatio)
+                }));
+            }
+
+            fire(0.25, {
+                spread: 26,
+                startVelocity: 55,
+            });
+            fire(0.2, {
+                spread: 60,
+            });
+            fire(0.35, {
+                spread: 100,
+                decay: 0.91,
+                scalar: 0.8
+            });
+            fire(0.1, {
+                spread: 120,
+                startVelocity: 25,
+                decay: 0.92,
+                scalar: 1.2
+            });
+            fire(0.1, {
+                spread: 120,
+                startVelocity: 45,
+            });
+        }
+        
+        // Функция для запуска анимации сердец
         function startHeartsAnimation() {
             const heartsContainer = document.getElementById('floating-hearts');
             heartsContainer.innerHTML = '';
             
-            const heartSymbols = ['❤️', '💖', '💕', '💓', '💗', '💘', '💝'];
+            const heartSymbols = ['❤', '💖', '💗', '💓', '💝'];
             const screenWidth = window.innerWidth;
             
             for (let i = 0; i < 30; i++) {
@@ -352,7 +695,7 @@
             }, 1500);
         }
         
-        // Функция для показа/скрытия фактов о мамах
+        // Функция для показа/скрытия фактов о маме
         function toggleFacts() {
             const factsBox = document.getElementById('mom-facts');
             
@@ -379,16 +722,13 @@
             
             const randomMessage = messages[Math.floor(Math.random() * messages.length)];
             
-            // Создаем элемент для сообщения
             const messageElement = document.createElement('div');
             messageElement.className = 'popup-message';
             messageElement.textContent = randomMessage;
             messageElement.style.animation = 'fadeIn 0.5s ease-out';
             
-            // Добавляем сообщение на страницу
             document.body.appendChild(messageElement);
             
-            // Удаляем сообщение через 3 секунды
             setTimeout(() => {
                 messageElement.style.animation = 'fadeOut 0.5s ease-in';
                 messageElement.style.opacity = '0';
@@ -403,7 +743,7 @@
             const header = document.querySelector('.header');
             const message = document.querySelector('.message');
             const gallery = document.querySelector('.gallery');
-            const specialImage = document.querySelector('.special-image');
+            const momImage = document.querySelector('.special-image');
             const quote = document.querySelector('.quote');
             
             // Добавляем стили для анимации
@@ -425,7 +765,7 @@
             header.classList.add('fade-in-up');
             
             setTimeout(() => {
-                specialImage.classList.add('fade-in-up');
+                momImage.classList.add('fade-in-up');
             }, 200);
             
             setTimeout(() => {
