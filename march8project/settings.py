@@ -28,24 +28,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-@!47)7_=hv^@0y1dnc9w-xc73(%jgl+$5v&9ietpygmfi@hyg7')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # Временно включаем отладку
+DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-# Базовые хосты
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 # Настройки для Render
 RENDER_EXTERNAL_HOSTNAME = os.getenv('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-
-# Явно добавляем все возможные хосты Render
-ALLOWED_HOSTS.extend([
-    'eight-march-hprn.onrender.com',
-    '.onrender.com',
-    'eight-march-hprn.app',
-    '.eight-march-hprn.app',
-    '*',  # Временно разрешаем все хосты для отладки
-])
 
 # Application definition
 
@@ -124,9 +114,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = os.getenv('LANGUAGE_CODE', 'ru')
+LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = os.getenv('TIME_ZONE', 'Europe/Moscow')
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -145,11 +135,15 @@ STATICFILES_DIRS = [
 # Настройка WhiteNoise для сжатия и кэширования
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Отключаем некоторые настройки безопасности для отладки
-CSRF_COOKIE_SECURE = False
-SESSION_COOKIE_SECURE = False
-SECURE_SSL_REDIRECT = False
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# Настройки безопасности для продакшена
+if not DEBUG:
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True
+    SECURE_HSTS_SECONDS = 31536000  # 1 год
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

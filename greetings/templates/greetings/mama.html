@@ -262,6 +262,22 @@
             from { opacity: 1; }
             to { opacity: 0; }
         }
+        
+        /* Добавляем медиа-запрос для мобильных устройств */
+        @media screen and (max-width: 768px) {
+            .special-title {
+                font-size: 2.5rem;
+                white-space: normal;
+                text-align: center;
+                padding: 0 10px;
+            }
+            
+            .typing-effect {
+                white-space: normal;
+                border-right: none;
+                animation: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -321,15 +337,15 @@
                 <h2>Для тебя, мама</h2>
                 <div class="image-container">
                     <div class="image-card">
-                        <img src="https://images.unsplash.com/photo-1520939817895-060bdaf4fe1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Розы" class="pop-image">
+                        <img src="https://images.unsplash.com/photo-1444021465936-c6ca81d39b84?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Розы" class="pop-image">
                         <p>Розы для тебя</p>
                     </div>
                     <div class="image-card">
-                        <img src="https://images.unsplash.com/photo-1444021465936-c6ca81d39b84?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Чашка чая" class="pop-image">
+                        <img src="https://images.unsplash.com/photo-1520939817895-060bdaf4fe1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Чашка чая" class="pop-image">
                         <p>Тепло и уют</p>
                     </div>
                     <div class="image-card">
-                        <img src="https://images.unsplash.com/photo-1519834089823-af2d966a42c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Сердце" class="pop-image">
+                        <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Сердце" class="pop-image">
                         <p>С любовью</p>
                     </div>
                 </div>

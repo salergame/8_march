@@ -16,10 +16,26 @@
         
         .sister-title {
             font-size: 3.8rem;
-            background: linear-gradient(45deg, #9b6bff, #c49eff);
+            background: linear-gradient(45deg, #9b6bff, #b69eff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: none;
+        }
+        
+        /* Добавляем медиа-запрос для мобильных устройств */
+        @media screen and (max-width: 768px) {
+            .sister-title {
+                font-size: 2.5rem;
+                white-space: normal;
+                text-align: center;
+                padding: 0 10px;
+            }
+            
+            .typing-effect {
+                white-space: normal;
+                border-right: none;
+                animation: none;
+            }
         }
         
         .sister-image {
