@@ -1,0 +1,78 @@
+/* Анимации и эффекты */
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 2px;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    display: inline-block;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: currentColor }
+}
+
+.rotate-animation {
+    animation: rotate 1s ease-in-out;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.shake-animation {
+    animation: shake-animation 0.5s ease-in-out;
+}
+
+@keyframes shake-animation {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.popup-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 107, 107, 0.9);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.pop-image {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.pop-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.pop-image:active {
+    transform: scale(0.95);
+} 

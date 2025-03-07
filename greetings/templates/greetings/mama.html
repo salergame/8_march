@@ -7,34 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>С 8 Марта, Мама!</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
     <style>
+        /* Специфичные стили для страницы мамы */
         .special-card {
             background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
-        }
-        
-        .special-title {
-            font-size: 3.8rem;
-            background: linear-gradient(45deg, #ff6b6b, #ff9e9e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: none;
-        }
-        
-        .special-image {
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
-            margin: 30px auto;
-            display: block;
-            max-width: 100%;
-            height: auto;
-            transition: transform 0.3s ease;
-        }
-        
-        .special-image:hover {
-            transform: scale(1.03);
         }
         
         .heart {
@@ -51,30 +31,6 @@
             100% { transform: scale(1); }
         }
         
-        .quote {
-            font-style: italic;
-            text-align: center;
-            margin: 30px 0;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: #ff6b6b;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .back-link:hover {
-            color: #ff5252;
-            text-decoration: underline;
-        }
-        
-        /* Новые стили для анимаций */
         .floating-hearts {
             position: absolute;
             top: 0;
@@ -146,40 +102,6 @@
             transition: all 0.5s ease;
         }
         
-        .typing-effect {
-            overflow: hidden;
-            border-right: 3px solid #ff6b6b;
-            white-space: nowrap;
-            margin: 0 auto;
-            letter-spacing: 2px;
-            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-            display: inline-block;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #ff6b6b }
-        }
-        
-        .pop-image {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .pop-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);
-        }
-        
-        .pop-image:active {
-            transform: scale(0.95);
-        }
-        
         .mom-facts {
             background-color: #fff9f9;
             border-radius: 10px;
@@ -218,65 +140,18 @@
             margin-right: 10px;
         }
         
-        .rotate-animation {
-            animation: rotate 1s ease-in-out;
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #ff6b6b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
         
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .shake-animation {
-            animation: shake-animation 0.5s ease-in-out;
-        }
-        
-        @keyframes shake-animation {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-            20%, 40%, 60%, 80% { transform: translateX(5px); }
-        }
-        
-        .popup-message {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(255, 107, 107, 0.9);
-            color: white;
-            padding: 20px 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-align: center;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translate(-50%, -60%); }
-            to { opacity: 1; transform: translate(-50%, -50%); }
-        }
-        
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-        
-        /* Добавляем медиа-запрос для мобильных устройств */
-        @media screen and (max-width: 768px) {
-            .special-title {
-                font-size: 2.5rem;
-                white-space: normal;
-                text-align: center;
-                padding: 0 10px;
-            }
-            
-            .typing-effect {
-                white-space: normal;
-                border-right: none;
-                animation: none;
-            }
+        .back-link:hover {
+            color: #ff5252;
+            text-decoration: underline;
         }
     </style>
 </head>
