@@ -427,62 +427,60 @@
         .button-purple:hover {
             background-color: #8152ff;
         }
-
-        /* Цветочная анимация */
-        .flowers-animation {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        .flower {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.7;
-            animation: float 15s linear infinite;
-        }
-
-        .flower-1 {
-            background-image: url('https://www.freepnglogos.com/uploads/flowers-png/flowers-png-transparent-images-download-clip-art-24.png');
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .flower-2 {
-            background-image: url('https://www.freepnglogos.com/uploads/flowers-png/flowers-png-picture-gallery-yopriceville-high-quality-24.png');
-            top: 20%;
-            right: 15%;
-            animation-delay: 5s;
-        }
-
-        .flower-3 {
-            background-image: url('https://www.freepnglogos.com/uploads/flowers-png/flowers-png-transparent-images-download-clip-art-24.png');
-            bottom: 15%;
-            right: 10%;
-            animation-delay: 10s;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0.7;
+        
+        /* Добавляем медиа-запрос для мобильных устройств */
+        @media screen and (max-width: 768px) {
+            .sister-title {
+                font-size: 2.5rem;
+                white-space: normal;
+                text-align: center;
+                padding: 0 10px;
             }
-            50% {
-                transform: translateY(-100px) rotate(180deg);
-                opacity: 0.4;
+            
+            .typing-effect {
+                white-space: normal;
+                border-right: none;
+                animation: none;
             }
-            100% {
-                transform: translateY(-200px) rotate(360deg);
-                opacity: 0;
+            
+            /* Улучшаем адаптивность для мобильных устройств */
+            .message p {
+                font-size: 0.95rem;
+                padding: 0 10px;
+            }
+            
+            .gallery h2 {
+                font-size: 1.8rem;
+            }
+            
+            .image-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .image-card {
+                width: 90%;
+                margin-bottom: 15px;
+            }
+            
+            button {
+                margin: 5px !important;
+                padding: 8px 12px;
+                font-size: 0.9rem;
+                display: inline-block;
+            }
+            
+            .quote {
+                font-size: 0.9rem;
+                padding: 15px 10px;
+            }
+            
+            .sister-facts {
+                padding: 15px;
+            }
+            
+            .sister-facts li {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -548,12 +546,12 @@
                         <p>Весенние цветы</p>
                     </div>
                     <div class="image-card">
-                        <img src="https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Тюльпаны" class="pop-image">
-                        <p>Яркие тюльпаны</p>
-                    </div>
-                    <div class="image-card">
                         <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Подарок" class="pop-image">
                         <p>С праздником</p>
+                    </div>
+                    <div class="image-card">
+                        <img src="https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Тюльпаны" class="pop-image">
+                        <p>Яркие тюльпаны</p>
                     </div>
                 </div>
             </div>
