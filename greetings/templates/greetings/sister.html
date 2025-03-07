@@ -267,6 +267,62 @@
         .button-purple:hover {
             background-color: #8152ff;
         }
+        
+        /* Добавляем медиа-запрос для мобильных устройств */
+        @media screen and (max-width: 768px) {
+            .sister-title {
+                font-size: 2.5rem;
+                white-space: normal;
+                text-align: center;
+                padding: 0 10px;
+            }
+            
+            .typing-effect {
+                white-space: normal;
+                border-right: none;
+                animation: none;
+            }
+            
+            /* Улучшаем адаптивность для мобильных устройств */
+            .message p {
+                font-size: 0.95rem;
+                padding: 0 10px;
+            }
+            
+            .gallery h2 {
+                font-size: 1.8rem;
+            }
+            
+            .image-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .image-card {
+                width: 90%;
+                margin-bottom: 15px;
+            }
+            
+            button {
+                margin: 5px !important;
+                padding: 8px 12px;
+                font-size: 0.9rem;
+                display: inline-block;
+            }
+            
+            .quote {
+                font-size: 0.9rem;
+                padding: 15px 10px;
+            }
+            
+            .sister-facts {
+                padding: 15px;
+            }
+            
+            .sister-facts li {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -330,12 +386,12 @@
                         <p>Весенние цветы</p>
                     </div>
                     <div class="image-card">
-                        <img src="https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Тюльпаны" class="pop-image">
-                        <p>Яркие тюльпаны</p>
-                    </div>
-                    <div class="image-card">
                         <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Подарок" class="pop-image">
                         <p>С праздником</p>
+                    </div>
+                    <div class="image-card">
+                        <img src="https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Тюльпаны" class="pop-image">
+                        <p>Яркие тюльпаны</p>
                     </div>
                 </div>
             </div>
