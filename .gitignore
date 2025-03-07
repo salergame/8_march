@@ -25,3 +25,37 @@ media
 *.swp
 *.swo
 .DS_Store
+
+# Переменные окружения
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+*.env
+
+# Файлы настроек Django с секретными ключами
+settings_local.py
+settings_production.py
+
+# Статические файлы, собранные для продакшена
+staticfiles/
+static_root/
+
+# Файлы миграций (опционально)
+# */migrations/*.py
+# !*/migrations/__init__.py
+
+# Файлы покрытия тестов
+.coverage
+htmlcov/
+
+# Файлы сборки и дистрибутивы
+dist/
+build/
+*.egg-info/
+
+# Временные файлы
+*.bak
+*.tmp
+*~
